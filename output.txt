@@ -1,0 +1,327 @@
+Here is the cleaned data, split into individual sentences while maintaining correct grammar, and grouped into paragraphs of 1-3 sentences that are similar in content:
+
+**Introduction**
+Sorry, Rich, but I still think we should talk about Svelte's decision to leave TypeScript and why I think it was probably the right call. Svelte is one of the first early adopters of TypeScript, especially outside of the TS/JS file world where Svelte has its own file syntax, Dotfelt.
+
+**Rich's understanding of TypeScript**
+Rich deeply understands type safety in the importance of what it enables for you as a developer and how much more confidently you can move in building applications. So much so that he even says it all the time, he does not recommend building application code without TypeScript and type safety.
+
+**Svelte's decision to leave TypeScript**
+However, that's not what we're talking about when we say Svelte left TypeScript. Svelte still supports TypeScript, you can still use TypeScript with Svelte, in fact, if you're using Svelte, you probably should use TypeScript.
+
+**TypeScript's burden on library developers**
+TypeScript is a lot harder burden for library devs. I have a video coming soon where I talk about tech that shifts the burden, and I think TypeScript's strength is how much it takes away from the application Dev in terms of worrying about consistency and reliability, but also how much more of that burden gets shifted to the library author to make sure the typed contracts are correct.
+
+**The challenges of using TypeScript with Svelte**
+Such that anyone consuming the library will have a good time with autocomplete and won't break their application, as well as the utter chaos around actually linking to and exporting the right types for the things you're building. TypeScript is part of your library build step, is obnoxious, and it makes the developer experience painful.
+
+**Alternative solutions**
+We just open-sourced the repo for upload thing, and if you want to look through it, you can see a bunch of the hacks we did just to make an npm package that uses TypeScript that has the correct type definitions but also can be used in Dev for us to iterate and experiment with it. It was hard to do that right, and it cost us a lot of time, as well as Julius jumping in and helping us out.
+
+**Conclusion**
+TypeScript is a much, much higher burden on library authors than it is on application devs, period. But is there another way? Can we get the type safety that we expect from a library without having to write the whole thing in TypeScript and deal with the consequences of writing everything in TypeScript? There is, and although it has some gotchas, it also has some benefits, and it's really interesting to see Svelte bet all in on JS Doc Typings.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+**What is JSDoc?**
+
+What each variable, what each thing does, it's meant to be a way to write contracts between files and between packages, is that are self-documenting and really handy. If you look at the example Rich tweeted here, you'll see that with traditional TypeScript, when you give a thing the type of thing, it just tells you that, but if you give it a JSDoc comment instead, you can write details for that with the typing.
+
+**Benefits of JSDoc**
+
+It's the co-location of a definition through a traditional comment and the type as part of the syntax for it that makes the readability of this stuff much better. And with upload thing, we went pretty out of our way to try and do similar, where even though we have all our type definitions done the traditional TypeScript way, I also leave comments all over the stuff so that you can get good definitions when you consume it.
+
+**Example of JSDoc in action**
+
+Here, where I put an example, so now when you hover over the upload button, you see an example of how to use it, and then when you get a type error, if you consume it incorrectly, here, and we like delete this, we got a type error that says you forgot to pass the generic. I'm like, what's that mean? Hover over this, oh, there's the example. I forgot to put this here, I'll put that there, and now it's good.
+
+**Challenges of implementing JSDoc**
+
+But we've had to do piles of hacks from both JSDoc as well as TypeScript, where in order to get that working at all, in order to get like the type error I had to lie to TypeScript a lot, in particular up here. I void out the type if you don't pass a router and return, you forgot to pass the generic instead of the actual key, but like that's a hack.
+
+**Comparison to traditional TypeScript**
+
+And there's a huge difference between this code and this code, and although I understand this code is like a complex generic, and this code is just an example, there is something to what Rich said here around the JSDoc syntax resulting in code that is better documented and consumable, as well as being a little bit more readable, and you're actually working on it and maintaining it.
+
+**Key benefits of JSDoc**
+
+But the key differentiator isn't just like the syntactic difference, certainly isn't that at all. It's that you don't need to build step anymore, so you don't need something to convert this TSX file into a JS file that can then run in the browser. If you have MJS or JS files that happen to use the syntax that's just a comment, it gets ignored by the browser, which allows you to not have to build anything in order to use the stuff, and you can still do.
+Here is the cleaned-up data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+Type checks in your CI using the type definitions you put above. These things, if you use the syntax that he showed here, where it's a type thing that's still type safe, you'll still get errors if you try to assign it something you're not supposed to.
+
+**Paragraph 2**
+I can even demo this quick and now without writing TypeScript. I have type safety. This is a JS file that's type safe. I don't think we should use this in apps though, because it's much harder to get a properly guaranteed type system.
+
+**Paragraph 3**
+But if your code base is a small number of files and a large amount of exports that people need to deeply understand, and the number of files and change a lot that the contents of them do, this model makes a lot of sense, especially for library devs.
+
+**Paragraph 4**
+As weird as it might be for me, the TypeScript guy, to sit here and say, "Hey, I think it makes sense," they moved off of TypeScript. I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base.
+
+**Paragraph 5**
+It's really nice to see how much of a win they've already found from it. This was a great tweet Matt made that I've thought a lot about and haven't done a video on. It's actually in my to-do here. It's just the bird, and I mentioned I was going to do this later.
+
+**Paragraph 6**
+This is a video about how certain technologies make developers work harder on the library side in order to make life easier for the app devs. That's why it's so cool to see people understand, like, these are very different.
+
+**Paragraph 7**
+I've written way more TypeScript over the last two months than I have in years, because normally when I write apps in TypeScript, I'm just writing JS. But when I am deep in library land making packages, I have to export for y'all to consume. I'm writing a lot more typings and I'm writing a lot more chaos within those.
+
+**Paragraph 8**
+It's just a fundamentally different world. Rich has decided to be the change, so to speak, and be one of the first people to push the idea of using type safety without using TypeScript by deeply embracing JS doc comments.
+
+**Paragraph 9**
+Theoretically, it will make working in their code base significantly simpler, and they've already made this change in Svelte Kit and really enjoyed it. I trust Rich and the team's judgment in moving Svelte as well, because they wouldn't have done this if it didn't work in Svelte Kit.
+
+**Paragraph 10**
+It's a bold move. It's not what many have made yet, but I do think...
+Here are the cleaned paragraphs:
+
+We're going to see more library authors taking advantage of JS Doc, which is the method of defining type-safe contracts within their projects. I'm really proud of the work they're doing. I'm so excited to see how people use this in the future, and if using JS Talk this way starts to become the norm.
+
+Huge shoutout to the Svelte team for being willing to pioneer these things. It's really cool to see. If you all want to hear a little bit more about Rich's hot takes and also get my reactions to them, I'm going to pin a video here where I react to his most recent talk. So check that out if you haven't already. Thank you as always, peace notes.
+
+Sorry Rich, but I still think we should talk about Svelte's decision to leave TypeScript, and why I think it was probably actually the right call. Svelte is one of the first early adopters of TypeScript, especially outside of the TSJS file world, where Svelte has its own file syntax, dots felt. They did a lot of hard work to make sure that inside of Spelled files, you still have type safety.
+
+Rich deeply understands type safety in the importance of what it enables for you as a developer, and how much more confidently you can move in building applications. So much so that he even says it all the time, he does not recommend building application code without TypeScript and type safety. However, that's not what we're talking about when we say Svelte left TypeScript. Svelte still supports TypeScript, you can still use TypeScript with Felt, in fact, if you're using Svelte, you probably should.
+
+TypeScript is a lot harder burden for library devs. I have a video coming soon where I talk about tech that shifts the burden, and I think TypeScript strength is how much it takes away from the application dev in terms of worrying about consistency and reliability, but also how much more of that burden gets shifted to the library author to make sure the typed contracts are correct, such that anyone consuming the library will have a good time with autocomplete and won't break their application.
+
+As well as the utter chaos around actually linking to and exporting the right types for the things you're building, TypeScript is part of your library build step is obnoxious, and it makes the developer experience painful. We just open-sourced the repo for upload thing, and if you want to look through it, you can see a bunch of the hacks we did just to make an NPM package that uses TypeScript that has the correct type definitions, but also can be used in Dev for us to iterate and experiment with it. It was hard to.
+Here is the cleaned-up data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+We went to great lengths to do that right, and it cost us a lot of time as well. Julius jumped in and helped us out. Typescript is a much higher burden on library authors than it is on application devs.
+
+**Paragraph 2**
+But is there another way? Can we get the type safety that we expect from a library without having to write the whole thing in Typescript and deal with the consequences of writing everything in Typescript? There is, and although it has some gotchas, it also has some benefits.
+
+**Paragraph 3**
+It's really interesting to see Svelte bet all in on JS Doc typing. JS Doc is a syntax for leaving comments in your code that tell your IDE or an exported like Builder or Docstep what each function, what each variable, what each thing does. It's meant to be a way to write contracts between files and between packages.
+
+**Paragraph 4**
+Is that are self-documenting and really handy? If you look at the example Rich tweeted here, you'll see that with traditional Typescript, when you give thing the type of thing, it just tells you that. But if you give it a JS Doc comment instead, you can write details for that with the typing.
+
+**Paragraph 5**
+It's the co-location of a definition through a traditional comment and the type as part of the syntax for it that makes the readability of this stuff much better. With upload thing, we went pretty out of our way to try and do similar. Even though we have all our type definitions done the traditional Typescript way, I also leave comments all over the stuff so that you can get good definitions when you consume it.
+
+**Paragraph 6**
+Here, where I put an example, so now when you hover over the upload button, you see an example of how to use it. And then when you get a type error if you consume it incorrectly, here and we like delete this, we got a type error that says you forgot to pass the generic. I'm like, what's that mean? Hover over this, oh, there's the example.
+
+**Paragraph 7**
+I forgot to put this here, I'll put that there, and now it's good. But we've had to do piles of hacks from both JSDoc as well as Typescript, where in order to get that working at all, in order to get like the type error I had to lie to Typescript a lot. In particular, up here, I void out the type if you don't pass a router and return. You forgot to pass the generic instead of the actual key, but like that's a hack.
+
+**Paragraph 8**
+There's a huge difference between this code and this code, and although I understand this code is like a complex generic, and this code is just an example, there's something to what Rich said here around.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+The JS doc syntax results in code that is better documented and consumable, as well as being a little bit more readable. You're actually working on it and maintaining it, but the key differentiator isn't just like the syntactical difference, certainly isn't that at all.
+
+**Paragraph 2**
+It's that you don't need to build step anymore, so you don't need something to convert this TSX file into a JS file that can then run in the browser. If you have MJS or JS files that happen to use the syntax, that's just a comment, it gets ignored by the browser, which allows you to not have to build anything in order to use the stuff.
+
+**Paragraph 3**
+You can still do type checks in your CI using the type definitions you put above these things. If you use the syntax that he showed here, where it's a type thing that's still type-safe, you'll still get errors if you try to assign it something you're not supposed to.
+
+**Paragraph 4**
+I can even demo this quick and now, without writing TypeScript, I have type safety. This is a JS file that's type-safe. I don't think we should use this in apps, though, because it's much harder to get a properly guaranteed type system.
+
+**Paragraph 5**
+But if your code base is a small number of files and a large amount of exports that people need to deeply understand, and the number of files and change a lot, that the contents of them do, this model makes a lot of sense, especially for library devs.
+
+**Paragraph 6**
+As weird as it might be for me, the TypeScript guy, to sit here and say, "Hey, I think it makes sense," they moved off of TypeScript. I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base.
+
+**Paragraph 7**
+It's really nice to see how much of a win they've already found from it. This was a great tweet Matt made that I've thought a lot about and haven't done a video on. It's actually, I have it in my to-do list here, it's just the bird, and I mentioned I was going to do this later.
+
+**Paragraph 8**
+This is a video about how certain technologies make developers work harder on the library side in order to make life easier for the app devs. That's why it's so cool to see people understand, like these are very different. I've written way more TypeScript over the last two months than I have in years.
+
+**Paragraph 9**
+Because normally when I write apps in TypeScript, I'm just writing JS, but when I am deep in library land, making packages, I have to export for y'all to consume. I'm writing.
+Here are the cleaned and formatted paragraphs:
+
+I'm writing a lot more about the chaos within those, and it's just a fundamentally different world. Rich has decided to be the change and speak out as one of the first people to push the idea of using type safety without using TypeScript by deeply embracing JS doc comments. Theoretically, it will make working in their codebase significantly simpler. They've already made this change in SvelteKit and really enjoyed it.
+
+I trust Rich and the team's judgment in moving Svelte as well because they wouldn't have done this if it didn't work in SvelteKit. It's a bold move, it's not what many have made yet, but I do think we're going to see more library authors taking advantage of JS Doc. It's the method of defining the type-safe contracts within their projects. I'm really proud of the work they're doing. I'm so excited to see how people use this in the future.
+
+If using JS talk this way starts to become the norm, huge shoutout to the Svelte team for being willing to pioneer these things. It's really cool to see. If you all want to hear a little bit more about Rich's hot takes and also get my reactions to them, I'm going to pin a video here where I react to his most recent talk. So check that out if you haven't already. Thank you as always, peace notes.
+
+Sorry Rich, but I still think we should talk about Svelte's decision to leave TypeScript and why I think it was probably actually the right call. Svelte is one of the first early adopters of TypeScript, especially outside of the TSJS file world where Svelte has its own file syntax. They did a lot of hard work to make sure that inside of Svelte files you still have type safety.
+
+Rich deeply understands type safety in the importance of what it enables for you as a developer and how much more confidently you can move in building applications. So much so that he even says it all the time, he does not recommend building application code without TypeScript and type safety. However, that's not what we're talking about when we say Svelte left TypeScript. Svelte still supports TypeScript, you can still use TypeScript with Svelte.
+
+In fact, if you're using Svelte, you probably should use TypeScript. TypeScript is a lot harder burden for library devs. I have a video coming soon where I talk about tech that shifts the burden, and I think TypeScript strength is how much it takes away from the application dev in terms of worrying about consistency and reliability, but also how much more of that burden gets shifted to.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+The library author needs to make sure the typed contracts are correct so that anyone consuming the library will have a good time with autocomplete and won't break their application. As well as the utter chaos around actually linking to and exporting the right types for the things you're building. Typescript is part of your library build step, is obnoxious, and it makes the developer experience painful.
+
+We just open sourced the repo for upload thing, and if you want to look through it, you can see a bunch of the hacks we did just to make an npm package that uses typescript that has the correct type definitions but also can be used in Dev for us to iterate and experiment with it. It was hard to do that right, and it cost us a lot of time, as well as Julius jumping in and helping us out.
+
+Typescript is a much much higher burden on library authors than it is on application devs, period. But is there another way can we get the type safety that we expect from a library without having to write the whole thing in typescript and deal with the consequences of writing everything in typescript? There is, and although it has some gotchas, it also has some benefits, and it's really interesting to see Svelte bet all in on JS Doc typing.
+
+JS Doc is a syntax for leaving comments in your code that tells your IDE or an exported like Builder or doc step what each function, what each variable, what each thing does. It's meant to be a way to write contracts between files and between packages that are self-documenting and really handy. If you look at the example Rich tweeted here, you'll see that with traditional typescript, when you give thing the type of thing, it just tells you that, but if you give it a JS Doc comment instead, you can write details for that with the typing, and it's the co-location of a definition through a traditional comment and the type as part of the syntax for it that makes the readability of this stuff much better.
+
+With upload thing, we went pretty out of our way to try and do similar, where even though we have all our type definitions done the traditional typescript way, I also leave comments all over the stuff so that you can get good definitions when you consume it. Here where I put an example, so now when you hover over the upload button, you see an example of how to use it, and then when you get a type error if you consume it incorrectly, here and we like delete this, we got a type error that says you forgot to pass the generic. I'm like what's that mean, hover over this, oh there's the example, I forgot to.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+I'll put that there and now it's good, but we've had to do piles of hacks from both JSDoc as well as TypeScript in order to get that working at all. In order to get like the type error, I had to lie to TypeScript a lot, in particular, up here I void out the type if you don't pass a router and return, you forgot to pass the generic instead of the actual key.
+
+**Paragraph 2**
+But like that's a hack, and there's a huge difference between this code and this code, and although I understand this code is like a complex generic, and this code is just an example, there is something to what Rich said here around the JS Doc syntax resulting in code that is better documented and consumable, as well as being a little bit more readable.
+
+**Paragraph 3**
+And you're actually working on it and maintaining it, but the key differentiator isn't just like the syntactical difference, certainly isn't that at all. It's that you don't need to build step anymore, so you don't need something to convert this TSX file into a JS file that can then run in the browser.
+
+**Paragraph 4**
+If you have MJS or JS files that have happen to use the syntax that's just a comment, it gets ignored by the browser, which allows you to not have to build anything in order to use the stuff, and you can still do type checks in your CI using the type definitions you put above these things.
+
+**Paragraph 5**
+If you use the syntax that he showed here, where it's a type thing that's still type-safe, you'll still get errors if you try to assign it something you're not supposed to. I can even demo this quick, and now without writing TypeScript, I have type safety. This is a JS file that's type-safe.
+
+**Paragraph 6**
+I don't think we should use this in apps, though, because it's much harder to get a properly guaranteed type system. But if your code base is a small number of files and a large amount of exports that people need to deeply understand, and the number of files and change a lot that the contents of them do, this model makes a lot of sense, especially for library devs.
+
+**Paragraph 7**
+And as weird as it might be for me to sit here and say, hey, I think it makes sense, they moved off of TypeScript. I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base, and it's really nice to see how much of a win they've already found from it. This was a great tweet Matt made that I've got the thing I've.
+Here are the cleaned paragraphs:
+
+I've thought a lot about this topic and haven't done a video on it yet, but I'm excited to share my thoughts. I've been working a lot with TypeScript lately, and I've noticed that certain technologies make developers work harder on the library side in order to make life easier for application devs.
+
+I've written way more TypeScript over the last two months than I have in years, because normally when I write apps in TypeScript, I'm just writing JavaScript. But when I'm deep in library land making packages, I have to export for y'all to consume. I'm writing a lot more typings and I'm writing a lot more chaos within those.
+
+Rich has decided to be the change and be one of the first people to push the idea of using type safety without using TypeScript by deeply embracing JS doc comments. Theoretically, it will make working in their codebase significantly simpler. They've already made this change in SvelteKit and really enjoyed it.
+
+I trust Rich and the team's judgment in moving Svelte as well, because they wouldn't have done it if it didn't work in SvelteKit. It's a bold move, it's not what many have made yet, but I do think we're going to see more library authors taking advantage of JS Doc. I'm really proud of the work they're doing, and I'm so excited to see how people use this in the future.
+
+If using JS Talk this way starts to become the norm, huge shoutout to the Svelte team for being willing to pioneer these things. It's really cool to see if you all want to hear a little bit more about Rich's hot takes and also get my reactions to them. I'm going to pin a video here where I react to his most recent talk, so check that out if you haven't already.
+
+Thanks as always, peace notes. Sorry Rich, but I still think we should talk about Svelte's decision to leave TypeScript and why I think it was probably actually the right call. Svelte is one of the first early adopters of TypeScript, especially outside of the TS file world, where Svelte has its own file syntax.
+
+Rich deeply understands type safety in the importance of what it enables for you as a developer and how much more confidently you can work.
+Here is the cleaned and formatted text, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+Can move in building applications so much so that he even says it all the time he does not recommend building application code without TypeScript and type safety. However, that's not what we're talking about when we say Svelte left TypeScript. Svelte still supports TypeScript, you can still use TypeScript, was felt in fact if you're using Svelte, you probably should.
+
+**Paragraph 2**
+TypeScript is a lot harder burden for Library devs. I have a video coming soon where I talk about tech that shifts the burden and I think TypeScript strength is how much it takes away from the application Dev in terms of worrying about consistency and reliability. But also how much more of that burden gets shifted to the library author to make sure the typed contracts are correct.
+
+**Paragraph 3**
+Such that anyone consuming the library will have a good time with auto-complete and won't break their application, as well as the utter chaos around actually linking to and exporting the right types for the things you're building. TypeScript is part of your library build step is obnoxious and it makes the developer experience painful.
+
+**Paragraph 4**
+We just open sourced the repo for upload thing and if you want to look through it, you can see a bunch of the hacks we did just to make an npm package that uses TypeScript that has the correct type definitions. But also can be used in Dev for us to iterate and experiment with it. It was hard to do that right and it cost us a lot of time, as well as Julius jumping in and helping us out.
+
+**Paragraph 5**
+TypeScript is a much much higher burden on Library authors than it is application devs, period. But is there another way? Can we get the type safety that we expect from a library without having to write the whole thing in TypeScript and deal with the consequences of writing everything in TypeScript? There is, and although it has some gotchas, it also has some benefits.
+
+**Paragraph 6**
+And it's really interesting to see Svelte bet all in on JS Doc typing. JS Doc is a syntax for leaving comments in your code that tell your IDE or an exported like Builder or Doc step what each function, what each variable, what each thing does. It's meant to be a way to write contracts between files and between packages that are self-documenting and really handy.
+
+**Paragraph 7**
+If you look at the example Rich tweeted here, you'll see that with traditional TypeScript, when you give thing the type of thing, it just tells you that. But if you give it a JS Doc comment instead, you can write details for that with the typing, and it's the co-location of a definition through a traditional comment and the type as part of the syntax for it.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+The readability of this stuff is much better, and with upload thing, we went pretty out of our way to try and do similar. Even though we have all our type definitions done the traditional typescript way, I also leave comments all over the stuff so that you can get good definitions when you consume it. Here, where I put an example, so now when you hover over the upload button, you see an example of how to use it.
+
+**Paragraph 2**
+And then when you get a type error, if you consume it incorrectly, here and we like delete this, we got a type error that says you forgot to pass the generic. I'm like, what's that mean? Hover over this, oh, there's the example. I forgot to put this here, I'll put that there, and now it's good.
+
+**Paragraph 3**
+But we've had to do piles of hacks from both JSDoc as well as Typescript, where in order to get that working at all, in order to get like the type error, I had to lie to Typescript a lot, in particular up here. I void out the type if you don't pass a router and return, you forgot to pass the generic instead of the actual key. But like, that's a hack, and there's a huge difference between this code and this code.
+
+**Paragraph 4**
+Although I understand this code is like a complex generic, and this code is just an example, there is something to what Rich said here around the JSDoc syntax resulting in code that is better documented and consumable, as well as being a little bit more readable. And you're actually working on it and maintaining it, but the key differentiator isn't just like the syntactical difference, certainly isn't that at all.
+
+**Paragraph 5**
+It's that you don't need to build step anymore, so you don't need something to convert this TSX file into a JS file that can then run in the browser. If you have MJS or JS files that happen to use the syntax that's just a comment, it gets ignored by the browser, which allows you to not have to build anything in order to use the stuff. And you can still do type checks in your CI using the type definitions you put above these things.
+
+**Paragraph 6**
+If you use the syntax that he showed here, where it's a type thing that's still type-safe, you'll still get errors if you try to assign it something you're not supposed to. I can even demo this quick, and now without writing Typescript, I have type safety. This is a JS file that's typesafe. I don't think we should use this in apps though, because it's much harder to get a properly guaranteed type system. But if your code base...
+Here are the cleaned paragraphs:
+
+**There is a small number of files and a large amount of exports that people need to deeply understand.** The number of files and change a lot, that the contents of them do this model makes a lot of sense, especially for library devs. And as weird as it might be for me, the TypeScript guy, to sit here and say, "Hey, I think it makes sense," they moved off of TypeScript. I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base.
+
+**It's really nice to see how much of a win they've already found from it.** This was a great tweet Matt made that I've thought a lot about and haven't done a video on. It's actually on my to-do list here. It's just the bird, and I mentioned I was going to do this later. This is a video about how certain technologies make developers work harder on the library side in order to make life easier for the application devs.
+
+**I've written way more TypeScript over the last two months than I have in years.** Normally, when I write apps in TypeScript, I'm just writing JS. But when I am deep in library land, making packages, I have to export for y'all to consume. I'm writing a lot more typings and I'm writing a lot more chaos within those. It's just a fundamentally different world.
+
+**Rich has decided to be the change and be one of the first people to push the idea of using type safety without using TypeScript.** By deeply embracing JS doc comments, it theoretically will make working in their code base significantly simpler. They've already made this change in Svelte Kit and really enjoyed it. I trust Rich in the team's judgment in moving Svelte as well, because they wouldn't have done this if it didn't work in Svelte Kit.
+
+**It's a bold move, it's not what many have made yet, but I do think we're going to see more library authors taking advantage of JS Doc.** It's the method of defining the type-safe contracts within their projects. I'm really proud of the work they're doing. I'm so excited to see how people use this in the future. And if using JS Talk this way starts to become the norm, huge shoutout to the Svelte team for being willing to pioneer these things.
+
+**It's really cool to see if you all want to hear a little bit more about Rich's hot takes and also get my reactions to them.** I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base.
+Here are the cleaned paragraphs:
+
+To pin a video here, where I react to his most recent talk, so check that out if you haven't already. Thank you as always, peace notes. Sorry, Rich, but I still think we should talk about Svelte's decision to leave TypeScript and why I think it was probably the right call.
+
+Svelte is one of the first early adopters of TypeScript, especially outside of the TSJS file world, where Svelte has its own file syntax, dots felt, and they did a lot of hard work to make sure that inside of spelled files you still have type safety. Rich deeply understands type safety in the importance of what it enables for you as a developer and how much more confidently you can move in building applications.
+
+However, that's not what we're talking about when we say Svelte left TypeScript. Svelte still supports TypeScript; you can still use TypeScript with Felt. In fact, if you're using Svelte, you probably should use TypeScript. TypeScript is a lot harder burden for library devs.
+
+I have a video coming soon where I talk about tech that shifts the burden, and I think TypeScript's strength is how much it takes away from the application dev in terms of worrying about consistency and reliability, but also how much more of that burden gets shifted to the library author to make sure the typed contracts are correct, such that anyone consuming the library will have a good time with autocomplete and won't break their application.
+
+As well as the utter chaos around actually linking to and exporting the right types for the things you're building, TypeScript is part of your library build step, is obnoxious, and it makes the developer experience painful. We just open-sourced the repo for upload thing, and if you want to look through it, you can see a bunch of the hacks we did just to make an npm package that uses TypeScript that has the correct type definitions but also can be used in dev for us to iterate and experiment with it.
+
+It was hard to do that right, and it cost us a lot of time, as well as Julius jumping in and helping us out. TypeScript is a much, much higher burden on library authors than it is app devs, period. But is there another way? Can we get the type safety that we expect from a library without having to write the whole thing in TypeScript and deal with the consequences of writing everything in TypeScript?
+
+There is, and although it has some gotchas, it also has some benefits, and it's really interesting to see Svelte bet all in on JS.
+Here is the cleaned and formatted text, split into individual sentences and grouped into paragraphs:
+
+**What is JSDoc?**
+
+JSDoc is a syntax for leaving comments in your code that tell your IDE or an exported tool like Builder or Docstep what each function, variable, and thing does. It's meant to be a way to write contracts between files and between packages. It's self-documenting and really handy.
+
+**Example of JSDoc**
+
+If you look at the example Rich tweeted here, you'll see that with traditional TypeScript, when you give something a type, it just tells you that. But if you give it a JSDoc comment instead, you can write details for that with the typing. It's the co-location of a definition through a traditional comment and the type as part of the syntax for it that makes the readability of this stuff much better.
+
+**How JSDoc improves code readability**
+
+With upload thing, we went pretty out of our way to try and do similar. Even though we have all our type definitions done the traditional TypeScript way, I also leave comments all over the stuff so that you can get good definitions when you consume it. Here, where I put an example, so now when you hover over the upload button, you see an example of how to use it. And then when you get a type error if you consume it incorrectly, here, and we like delete this, we got a type error that says you forgot to pass the generic.
+
+**Challenges with implementing JSDoc**
+
+We've had to do piles of hacks from both JSDoc as well as TypeScript, where in order to get that working at all, in order to get like the type error I had to lie to TypeScript a lot. In particular, up here, I void out the type if you don't pass a router and return. You forgot to pass the generic instead of the actual key, but like that's a hack.
+
+**Benefits of using JSDoc**
+
+Although I understand this code is like a complex generic, and this code is just an example, there is something to what Rich said here around the JSDoc syntax resulting in code that is better documented and consumable, as well as being a little bit more readable. And you're actually working on it and maintaining it. The key differentiator isn't just like the syntactical difference, certainly isn't that at all. It's that you don't need to build step anymore, so you don't need something to convert this TSX file into a JS file that can then run in the browser.
+After cleaning the data, I've split the entire transcript into individual sentences while maintaining correct grammar, and grouped 1-3 sentences that are similar in content together into paragraphs. Here are the resulting paragraphs:
+
+**Paragraph 1**
+A comment gets ignored by the browser, which allows you to not have to build anything in order to use the stuff, and you can still do type checks in your CI using the type definitions you put above these things. If you use the syntax that he showed here, where it's a type thing that's still type safe, you'll still get errors if you try to assign it something you're not supposed to.
+
+**Paragraph 2**
+I can even demo this quick and now without writing typescript, I have type safety. This is a JS file that's type safe. I don't think we should use this in apps though, because it's much harder to get a properly guaranteed type system. But if your code base is a small number of files and a large amount of exports that people need to deeply understand, and the number of files and change a lot that the contents of them do, this model makes a lot of sense, especially for library devs.
+
+**Paragraph 3**
+As weird as it might be for me to sit here and say hey, I think it makes sense, they moved off of typescript. I'm going to sit here and do it because it absolutely makes them more productive as they work in this code base, and it's really nice to see how much of a win they've already found from it. This was a great tweet Matt made that I've thought a lot about and haven't done a video on, it's actually in my to-do here, it's just the bird.
+
+**Paragraph 4**
+I mentioned I was going to do this later, this is a video about how certain technologies make developers work harder on the library side in order to make life easier for the app devs, and that's why it's so cool to see people understand like these are very different. I've written way more typescript over the last two months than I have in years, because normally when I write apps in typescript, I'm just writing JS, but when I am deep in library land making packages, I have to export for y'all to consume.
+
+**Paragraph 5**
+I'm writing a lot more typings and I'm writing a lot more chaos within those. It's just a fundamentally different world, and Rich has decided to be the change so to speak, and be one of the first people to push the idea of using type safety without using typescript by deeply embracing JS doc comments. It theoretically will make working in their code base significantly simpler, and they've already made this change in Svelte Kit and really enjoyed it.
+Here is the cleaned data, split into individual sentences and grouped into paragraphs:
+
+**Paragraph 1**
+I don't think this if it didn't work in Svelte Kit. It's a bold move, it's not what many have made yet, but I do think we're going to see more Library authors taking advantage of JS Doc.
+
+**Paragraph 2**
+JS Doc is the method of defining the typesafe contracts within their projects. I'm really proud of the work they're doing. I'm so excited to see how people use this in the future.
+
+**Paragraph 3**
+And if using JS Talk this way starts to become the norm, huge shout out to the Svelte team for being willing to pioneer these things. It's really cool to see.
+
+**Paragraph 4**
+If you all want to hear a little bit more about Rich's hot takes and also get my reactions to them, I'm going to pin a video here where I react to his most recent talk. So check that out if you haven't already.
+
+**Paragraph 5**
+Thank you as always, peace notes.
